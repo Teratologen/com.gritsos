@@ -1,0 +1,46 @@
+.container {
+    flex-direction: column;
+    text-align: center;
+    background-size: contain;
+    width: 60px;
+    height: 80vh;
+    display: flex;
+}
+
+.stream {
+    display: block;
+    flex: 1;
+    background: url(http://localhost:9090/build/stream.svg) 0 0 repeat-y;
+    animation-name: streamAnimation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    background-size: 24px 500px;
+}
+
+.tap {
+  display: block;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: url(http://localhost:9090/build/tap.svg) 0 0 no-repeat;
+  background-size: contain;
+}
+.glass {
+  display: block;
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  z-index: 10;
+  background: url(http://localhost:9090/build/glass.svg) 0 0 no-repeat;
+  background-size: 34px 50px;
+  background-position: 21px 0px;
+}
+
+@keyframes streamAnimation {
+    0%   {background-color:transparent; background-position:27px 0;}
+    100%  {background-color:transparent; background-position:27px 500px;}
+}
