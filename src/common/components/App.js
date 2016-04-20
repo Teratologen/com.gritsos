@@ -1,17 +1,22 @@
 import React from 'react';
+import Sidebar from './Sidebar';
 import Menu from './Menu';
-import MenuItem from './Menu/MenuItem.js';
+import Beertap from "./Beertap/index.jsx";
+
+
+import style from '../base.css';
+
 
 export default ({children}) => {
   return (
-    <div id="container">
-      <Menu name="name">
-        <MenuItem>Beer</MenuItem>
-        <MenuItem>Lifestyle</MenuItem>
-        <MenuItem>About us</MenuItem>
-        <MenuItem>Contact</MenuItem>
-      </Menu>
-      {children}
+    <div className={style.container}>
+      <Sidebar className={style.sidebar}>
+        <h2>Gritsos</h2>
+        <Beertap className={style.beertap}></Beertap>
+      </Sidebar>
+      <div className={style.content}>
+        {children}
+      </div>
     </div>
   );
 }
