@@ -56,9 +56,12 @@
     "babel-runtime": "^6.5.0",
     "classnames": "^2.2.3",
     "express": "^4.12.3",
+    "highcharts": "^4.2.4",
+    "highcharts-more": "^0.1.2",
     "purecss": "^0.6.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
+    "react-highcharts": "^8.2.0",
     "react-router": "^2.0.0"
   }
 }
