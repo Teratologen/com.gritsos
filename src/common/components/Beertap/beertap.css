@@ -38,6 +38,8 @@
   mask-repeat: repeat-y;
   mask-size: 24px 500px;
   background-color: black;
+  transition: background-color 4s linear;
+  
   animation-name: streamAnimation;
   animation-duration: 4s;
   animation-iteration-count: infinite;

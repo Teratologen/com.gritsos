@@ -10,7 +10,7 @@ html, body, :global(#app) {
 .sidebar {
   width: 200px;
   position: relative;
-  background:#bdad8a;
+  background: #e6e6e6;
 }
 
 .beertap {
