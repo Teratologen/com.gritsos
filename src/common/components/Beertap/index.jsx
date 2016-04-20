@@ -5,12 +5,13 @@ import classNames from 'classnames';
 export default class Beertap extends React.Component {
   render() {
     const {children, className, ...props} = this.props;
-    let classname = classNames(style.container, className);
+    const containerClass = classNames(style.container, className);
+    const streamClass = classNames(style.stream, 'beerEBC-50');
     
     return (
-      <div className={classname} {...props}>
+      <div className={containerClass} {...props}>
         <div className={style.tap}></div>
-        <div className={style.stream}></div>
+        <div className={streamClass}></div>
         <div className={style.glass}></div>
       </div>
     );

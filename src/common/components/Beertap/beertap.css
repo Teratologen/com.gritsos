@@ -30,74 +30,80 @@
 .stream {
   flex: 1 1 0;
   min-height: 50px;
+  /*
   background: url(http://localhost:9090/build/stream.svg) 0 0 repeat-y;
   background-size: 24px 500px;
+  */
+  mask-image: url(http://localhost:9090/build/stream.svg);
+  mask-repeat: repeat-y;
+  mask-size: 24px 500px;
+  background-color: black;
   animation-name: streamAnimation;
   animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
-.beerEBC-0  { fill: #FEE799 }
-.beerEBC-1  { fill: #FDD979 }
-.beerEBC-2  { fill: #FDCB5A }
-.beerEBC-3  { fill: #FDCB5C }
-.beerEBC-4  { fill: #FCC143 }
-.beerEBC-5  { fill: #F7B324 }
-.beerEBC-6  { fill: #F5A800 }
-.beerEBC-7  { fill: #EE9E01 }
-.beerEBC-8  { fill: #E69100 }
-.beerEBC-9  { fill: #E69100 }
-.beerEBC-10 { fill: #E48A02 }
-.beerEBC-11 { fill: #DA7E01 }
-.beerEBC-12 { fill: #D37400 }
-.beerEBC-13 { fill: #CB6C00 }
-.beerEBC-14 { fill: #C66403 }
-.beerEBC-15 { fill: #C66403 }
-.beerEBC-16 { fill: #BF5C01 }
-.beerEBC-17 { fill: #B65300 }
-.beerEBC-18 { fill: #AF5000 }
-.beerEBC-19 { fill: #AB4600 }
-.beerEBC-20 { fill: #A84504 }
-.beerEBC-21 { fill: #A24001 }
-.beerEBC-22 { fill: #9C3900 }
-.beerEBC-23 { fill: #963500 }
-.beerEBC-24 { fill: #912F00 }
-.beerEBC-25 { fill: #8C2D01 }
-.beerEBC-26 { fill: #852705 }
-.beerEBC-27 { fill: #832501 }
-.beerEBC-28 { fill: #7E1F01 }
-.beerEBC-29 { fill: #771C01 }
-.beerEBC-30 { fill: #721B00 }
-.beerEBC-31 { fill: #6C1501 }
-.beerEBC-32 { fill: #651202 }
-.beerEBC-33 { fill: #670F01 }
-.beerEBC-34 { fill: #620F01 }
-.beerEBC-35 { fill: #5B0D01 }
-.beerEBC-36 { fill: #560C03 }
-.beerEBC-37 { fill: #540B05 }
-.beerEBC-38 { fill: #500A08 }
-.beerEBC-39 { fill: #4E0A09 }
-.beerEBC-40 { fill: #4A0605 }
-.beerEBC-41 { fill: #440706 }
-.beerEBC-42 { fill: #420807 }
-.beerEBC-43 { fill: #3B0908 }
-.beerEBC-44 { fill: #390708 }
-.beerEBC-45 { fill: #39070A }
-.beerEBC-46 { fill: #39080B }
-.beerEBC-47 { fill: #35090A }
-.beerEBC-48 { fill: #30090A }
-.beerEBC-49 { fill: #2A0809 }
-.beerEBC-50 { fill: #260808 }
-.beerEBC-51 { fill: #260808 }
-.beerEBC-52 { fill: #230706 }
-.beerEBC-53 { fill: #1E0606 }
-.beerEBC-54 { fill: #190506 }
-.beerEBC-55 { fill: #140404 }
-.beerEBC-56 { fill: #0F0303 }
-.beerEBC-57 { fill: #0F0303 }
-.beerEBC-58 { fill: #060203 }
-.beerEBC-59 { fill: #000000 }
+:global(.beerEBC-0 ) { background-color: #FEE799 }
+:global(.beerEBC-1 ) { background-color: #FDD979 }
+:global(.beerEBC-2 ) { background-color: #FDCB5A }
+:global(.beerEBC-3 ) { background-color: #FDCB5C }
+:global(.beerEBC-4 ) { background-color: #FCC143 }
+:global(.beerEBC-5 ) { background-color: #F7B324 }
+:global(.beerEBC-6 ) { background-color: #F5A800 }
+:global(.beerEBC-7 ) { background-color: #EE9E01 }
+:global(.beerEBC-8 ) { background-color: #E69100 }
+:global(.beerEBC-9 ) { background-color: #E69100 }
+:global(.beerEBC-10) { background-color: #E48A02 }
+:global(.beerEBC-11) { background-color: #DA7E01 }
+:global(.beerEBC-12) { background-color: #D37400 }
+:global(.beerEBC-13) { background-color: #CB6C00 }
+:global(.beerEBC-14) { background-color: #C66403 }
+:global(.beerEBC-15) { background-color: #C66403 }
+:global(.beerEBC-16) { background-color: #BF5C01 }
+:global(.beerEBC-17) { background-color: #B65300 }
+:global(.beerEBC-18) { background-color: #AF5000 }
+:global(.beerEBC-19) { background-color: #AB4600 }
+:global(.beerEBC-20) { background-color: #A84504 }
+:global(.beerEBC-21) { background-color: #A24001 }
+:global(.beerEBC-22) { background-color: #9C3900 }
+:global(.beerEBC-23) { background-color: #963500 }
+:global(.beerEBC-24) { background-color: #912F00 }
+:global(.beerEBC-25) { background-color: #8C2D01 }
+:global(.beerEBC-26) { background-color: #852705 }
+:global(.beerEBC-27) { background-color: #832501 }
+:global(.beerEBC-28) { background-color: #7E1F01 }
+:global(.beerEBC-29) { background-color: #771C01 }
+:global(.beerEBC-30) { background-color: #721B00 }
+:global(.beerEBC-31) { background-color: #6C1501 }
+:global(.beerEBC-32) { background-color: #651202 }
+:global(.beerEBC-33) { background-color: #670F01 }
+:global(.beerEBC-34) { background-color: #620F01 }
+:global(.beerEBC-35) { background-color: #5B0D01 }
+:global(.beerEBC-36) { background-color: #560C03 }
+:global(.beerEBC-37) { background-color: #540B05 }
+:global(.beerEBC-38) { background-color: #500A08 }
+:global(.beerEBC-39) { background-color: #4E0A09 }
+:global(.beerEBC-40) { background-color: #4A0605 }
+:global(.beerEBC-41) { background-color: #440706 }
+:global(.beerEBC-42) { background-color: #420807 }
+:global(.beerEBC-43) { background-color: #3B0908 }
+:global(.beerEBC-44) { background-color: #390708 }
+:global(.beerEBC-45) { background-color: #39070A }
+:global(.beerEBC-46) { background-color: #39080B }
+:global(.beerEBC-47) { background-color: #35090A }
+:global(.beerEBC-48) { background-color: #30090A }
+:global(.beerEBC-49) { background-color: #2A0809 }
+:global(.beerEBC-50) { background-color: #260808 }
+:global(.beerEBC-51) { background-color: #260808 }
+:global(.beerEBC-52) { background-color: #230706 }
+:global(.beerEBC-53) { background-color: #1E0606 }
+:global(.beerEBC-54) { background-color: #190506 }
+:global(.beerEBC-55) { background-color: #140404 }
+:global(.beerEBC-56) { background-color: #0F0303 }
+:global(.beerEBC-57) { background-color: #0F0303 }
+:global(.beerEBC-58) { background-color: #060203 }
+:global(.beerEBC-59) { background-color: #000000 }
 
 .glass {
   width: 100%;
@@ -109,6 +115,6 @@
 }
 
 @keyframes streamAnimation {
-  0%   {background-color:transparent; background-position:27px 0;}
-  100% {background-color:transparent; background-position:27px 500px;}
+  0%   { mask-position: 27px 0; }
+  100% { mask-position: 27px 500px; }
 }
