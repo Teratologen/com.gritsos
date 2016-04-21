@@ -35,9 +35,8 @@ export default class Beertap extends React.Component {
     const code = (minuteOfDay <= 1440/2) ? 
       Math.round(minuteOfDay / this.colorChangeInterval) :
       Math.round((1440 - minuteOfDay) / this.colorChangeInterval);
-    const codeOffset = 30;
     
-    return (code + 30) % 59;
+    return (code + 30) % 60;
   }
   
   /* Calculate and update the beerEBCColorCode if its value
@@ -59,8 +58,7 @@ export default class Beertap extends React.Component {
    * assigned to midnight.
    */
   getBeerEBCColorClass() {
-    const code = this.state.beerEBCColorCode % 59;
-    console.log(code);
+    const code = this.state.beerEBCColorCode % 60;
     return `beerEBC-${code}`;
   }
   
@@ -87,7 +85,11 @@ export default class Beertap extends React.Component {
 
   render() {
     const {children, className, ...props} = this.props;
+    /* Pass on classes applied to the parent to the
+     * container */
     const containerClass = classNames(style.container, className);
+    /* Assign the correct beer EBC color code class to the
+     * stream */
     const streamClass = classNames(style.stream, this.getBeerEBCColorClass());
     
     return (
@@ -99,3 +101,5 @@ export default class Beertap extends React.Component {
     );
   }
 }
+
+Beertap.propTypes = {};

@@ -1,14 +1,17 @@
-import React from "react";
+import React from 'react';
 import classNames from 'classnames';
 
-// css
+import MenuItem from './MenuItem';
+export { MenuItem };
+
 import style from "./Menu.css";
+
 /*
-<Menu name="name">
-  <MenuItem>Item 1</MenuItem>
-  <MenuItem>Item 2</MenuItem>
-</Menu>
-*/
+ * <Menu name="name">
+ *   <MenuItem>Item 1</MenuItem>
+ *   <MenuItem>Item 2</MenuItem>
+ * </Menu>
+ */
 
 export default class Menu extends React.Component {
   render() {

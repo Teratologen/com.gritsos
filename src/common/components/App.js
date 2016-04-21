@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from './Sidebar';
-import Menu from './Menu';
+import Menu, { MenuItem } from './Menu';
 import Beertap from "./Beertap/index.jsx";
 
 
@@ -13,7 +13,8 @@ export default ({children}) => {
       <Sidebar className={style.sidebar}>
         <h2>Gritsos</h2>
         <Menu>
-          hello
+          <MenuItem>Current brew</MenuItem>
+          <MenuItem>April 21</MenuItem>
         </Menu>
         <Beertap className={style.beertap}></Beertap>
       </Sidebar>
