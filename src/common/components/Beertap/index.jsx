@@ -24,12 +24,19 @@ export default class Beertap extends React.Component {
     this.state = {
       beerEBCColorCode: this.calculateBeerEBCColorCode(),
       displayGlass: true,
+      mousePosition: {"x": null, "y": null},
     };
   }
 
   /* Event handlers ––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
   handleGlassMouseDown() {
-    this.setState({displayGlass: false})
+    this.setState({displayGlass: false});
+    window.addEventListener("mousemove", function(){
+      var xyPosition = {"x": window.event.clientX, "y": window.event.clientY-100};
+      this.setState({
+        mousePosition: xyPosition
+      });
+    }.bind(this));
   }
 
   /* Beer EBC code –––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -102,11 +109,24 @@ export default class Beertap extends React.Component {
 
     const glassElement = (this.state.displayGlass) ? (<div className={style.glass} onMouseDown={this.handleGlassMouseDown}></div>) : null;
 
+    var divStyle = {
+      width: '100%',
+      height: '50px',
+      background: 'url(http://localhost:9090/build/glass.svg) 0 0 no-repeat',
+      backgroundSize: '34px 50px',
+      position: 'absolute',
+      zIndex: '9999',
+      left: this.state.mousePosition.x,
+      top: this.state.mousePosition.y,
+    };
+    const glassElementMoving = (this.state.displayGlass) ? null : (<div style={divStyle}></div>);
+
     return (
       <div className={containerClass} {...props}>
         <div className={style.tap}></div>
         <div className={streamClass}></div>
         {glassElement}
+        {glassElementMoving}
       </div>
     );
   }
