@@ -11,7 +11,6 @@ export default ({children}) => {
   return (
     <div className={style.container}>
       <Sidebar className={style.sidebar}>
-        <h2>Gritsos</h2>
         <Menu>
           <MenuItem>Current brew</MenuItem>
           <MenuItem>April 21</MenuItem>
