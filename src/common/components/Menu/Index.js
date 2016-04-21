@@ -1,5 +1,4 @@
 import React from "react";
-//import styles from "purecss";
 import classNames from 'classnames';
 
 // css
@@ -14,13 +13,11 @@ import style from "./Menu.css";
 export default class Menu extends React.Component {
   render() {
     return (
-      <div className={classNames(style["pure-menu"], "pure-menu-horizontal")}>
-        <a href="#" className={classNames(style.logo, "pure-menu-heading")}>GRITS</a>
-
-        <ul className="pure-menu-list">
+      <menu className={style.menu}>
+        <ul className="">
           {this.props.children}
         </ul>
-      </div>
+      </menu>
     );
   }
 }

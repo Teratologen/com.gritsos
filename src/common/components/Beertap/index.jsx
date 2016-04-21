@@ -27,7 +27,7 @@ export default class Beertap extends React.Component {
   /* Beer EBC code –––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
   /* Calculate a color code (0..59) based on the current
-   * time. 
+   * time.
    */
   calculateBeerEBCColorCode() {
     const utcTimeInMinutes = new Date().getTime() / 60000;

@@ -12,6 +12,9 @@ export default ({children}) => {
     <div className={style.container}>
       <Sidebar className={style.sidebar}>
         <h2>Gritsos</h2>
+        <Menu>
+          hello
+        </Menu>
         <Beertap className={style.beertap}></Beertap>
       </Sidebar>
       <div className={style.content}>
