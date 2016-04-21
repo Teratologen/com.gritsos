@@ -3,7 +3,7 @@
  * Make the menu have a very faint box-shadow.
  */
 .menu {
-  
+
   margin: 20px;
   background: white;
 }
@@ -11,10 +11,4 @@
 .pure-menu {
     box-shadow: 0 2px 1px rgba(64,82,82, 1);
     background: rgba(220,212,198, 1);
-}
-.logo {
-  display: block;
-  text-indent: 10px;
-  background: url(http://localhost:9090/build/beer.svg) 0 0 no-repeat;
-  background-size: contain;
 }

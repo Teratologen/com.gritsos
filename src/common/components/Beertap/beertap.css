@@ -1,8 +1,8 @@
 /* Beertap CSS
- * 
+ *
  * width: 60px
  * min-height: 60px + 10px + 50px
- * 
+ *
  * <div class="container">
  *   <div class="tap"></div>
  *   <div class="stream"></div>
@@ -39,7 +39,7 @@
   mask-size: 24px 500px;
   background-color: black;
   transition: background-color 4s linear;
-  
+
   animation-name: streamAnimation;
   animation-duration: 4s;
   animation-iteration-count: infinite;
@@ -113,7 +113,7 @@
   flex-shrink: 0;
   background: url(http://localhost:9090/build/glass.svg) 0 0 no-repeat;
   background-size: 34px 50px;
-  background-position: 21px 0px;
+  background-position: 22px 0px;
 }
 
 @keyframes streamAnimation {
