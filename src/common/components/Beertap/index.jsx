@@ -20,23 +20,52 @@ export default class Beertap extends React.Component {
     this.handleGlassMouseDown =
       this.handleGlassMouseDown.bind(this);
 
+    this.handleMouseMove =
+      this.handleMouseMove.bind(this);
+
+    this.handleMouseUp =
+      this.handleMouseUp.bind(this);
+
     /* Set initial state */
     this.state = {
       beerEBCColorCode: this.calculateBeerEBCColorCode(),
       displayGlass: true,
+      moveGlass: false,
+      dropGlass: false,
       mousePosition: {"x": null, "y": null},
     };
   }
 
   /* Event handlers ––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-  handleGlassMouseDown() {
-    this.setState({displayGlass: false});
-    window.addEventListener("mousemove", function(){
-      var xyPosition = {"x": window.event.clientX, "y": window.event.clientY-100};
-      this.setState({
-        mousePosition: xyPosition
-      });
-    }.bind(this));
+  handleGlassMouseDown(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    this._initialMousePosition = {x: event.clientX, y: event.clientY};
+    this.setState({displayGlass: false, mousePosition: {x: 0, y: 0}});
+
+    window.addEventListener("mousemove", this.handleMouseMove);
+    window.addEventListener("mouseup", this.handleMouseUp);
+  }
+
+  handleMouseMove(event) {
+    this.setState({moveGlass: true});
+    event.preventDefault();
+    event.stopPropagation();
+
+    var xyPosition = {x: event.clientX - this._initialMousePosition.x, y: event.clientY - this._initialMousePosition.y};
+    this.setState({
+      mousePosition: xyPosition
+    });
+  }
+
+  handleMouseUp(event) {
+    this.setState({dropGlass: true});
+    event.preventDefault();
+    event.stopPropagation();
+
+    window.removeEventListener("mousemove", this.handleMouseMove);
+    window.removeEventListener("mouseup", this.handleMouseUp);
   }
 
   /* Beer EBC code –––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -107,26 +136,23 @@ export default class Beertap extends React.Component {
      * stream */
     const streamClass = classNames(style.stream, this.getBeerEBCColorClass());
 
-    const glassElement = (this.state.displayGlass) ? (<div className={style.glass} onMouseDown={this.handleGlassMouseDown}></div>) : null;
+    const waveClass = classNames(style.wave, this.getBeerEBCColorClass());
 
-    var divStyle = {
-      width: '100%',
-      height: '50px',
-      background: 'url(http://localhost:9090/build/glass.svg) 0 0 no-repeat',
-      backgroundSize: '34px 50px',
-      position: 'absolute',
-      zIndex: '9999',
+    const glassClass = classNames(style.glass, {[`${style.glassMoving}`]: this.state.moveGlass}, {[`${style.glassDropping}`]: this.state.dropGlass});
+
+    const glassStyle = {
       left: this.state.mousePosition.x,
-      top: this.state.mousePosition.y,
+      bottom: -this.state.mousePosition.y,
     };
-    const glassElementMoving = (this.state.displayGlass) ? null : (<div style={divStyle}></div>);
+
+    const glassProps = (this.state.displayGlass) ? {onMouseDown: this.handleGlassMouseDown} : {style: glassStyle};
 
     return (
       <div className={containerClass} {...props}>
         <div className={style.tap}></div>
         <div className={streamClass}></div>
-        {glassElement}
-        {glassElementMoving}
+        <div className={glassClass} {...glassProps}></div>
+        <div className={waveClass}></div>
       </div>
     );
   }
