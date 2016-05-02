@@ -9,6 +9,8 @@ export default class Beertap extends React.Component {
 
     this.colorChangeInterval = (60 / 118 * 24);
     this.colorUpdateTimer = null;
+    this.randomWidth = 1500;
+    this.timer = null;
 
     /* Bind methods */
     this.calculateBeerEBCColorCode =
@@ -25,6 +27,9 @@ export default class Beertap extends React.Component {
 
     this.handleMouseUp =
       this.handleMouseUp.bind(this);
+
+    this.toggleSomething =
+      this.toggleSomething.bind(this);
 
     /* Set initial state */
     this.state = {
@@ -66,6 +71,23 @@ export default class Beertap extends React.Component {
 
     window.removeEventListener("mousemove", this.handleMouseMove);
     window.removeEventListener("mouseup", this.handleMouseUp);
+  }
+
+  /* Bubles  ------–––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+  toggleSomething() {
+    var leftPosition = parseInt(Math.random()*270).toString();
+    var bubbleSize = parseInt(3+Math.random()*12).toString();
+
+    clearInterval(this.timer);
+    this.timer = setInterval(this.toggleSomething, parseInt(Math.random() * this.randomWidth));
+    var myContainer = document.getElementById('myContainer');
+    var bubble = document.createElement('bubble');
+    bubble.className = style.bubbles;
+    bubble.style.left = leftPosition+"px";
+    bubble.style.width = bubbleSize+"px";
+    bubble.style.height = bubbleSize+"px";
+    bubble.style.animationDuration = (200/bubbleSize).toString()+"s";
+    myContainer.insertAdjacentElement('beforeend', bubble);
   }
 
   /* Beer EBC code –––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -118,6 +140,7 @@ export default class Beertap extends React.Component {
       this.updateBeerEBCColorCode.bind(this),
       this.colorChangeInterval * 60000);
 
+    this.timer = setInterval(this.toggleSomething, 10000);
   }
 
   componentWillUnmount() {
@@ -148,7 +171,7 @@ export default class Beertap extends React.Component {
     const glassProps = (this.state.displayGlass) ? {onMouseDown: this.handleGlassMouseDown} : {style: glassStyle};
 
     return (
-      <div className={containerClass} {...props}>
+      <div id="myContainer" className={containerClass} {...props}>
         <div className={style.tap}></div>
         <div className={streamClass}></div>
         <div className={glassClass} {...glassProps}></div>

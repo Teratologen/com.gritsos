@@ -66,10 +66,30 @@
   transition: background-color 4s linear;
 
   animation-name: waveUpAnimation, waveSideAnimation;
-  animation-duration: 7s, 4s;
+  animation-duration: 28s, 4s;
   animation-iteration-count: 1, infinite;;
   animation-timing-function: ease-out, linear;
   animation-fill-mode: forwards, forwards;
+}
+
+.bubbles {
+  position: absolute;
+  z-index: 9999;
+  bottom: 0px;
+  /*
+  background: url(http://localhost:9090/build/stream.svg) 0 0 repeat-y;
+  background-size: 24px 500px;
+  */
+  mask-image: url(http://localhost:9090/build/bubble.svg);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  background-color: rgb(255, 254, 222);
+
+  animation-name: bubbleAnimation;
+  animation-duration: 30s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 }
 
 :global(.beerEBC-0 ) { background-color: #FEE799 }
@@ -172,4 +192,9 @@
 @keyframes waveUpAnimation {
   0%   { transform: translate(0px,650px); }
   100% { transform: translate(0px,50px); }
+}
+
+@keyframes bubbleAnimation {
+  0%   { transform: translate(0px,0px)}
+  100% { transform: translate(0px,-500px)}
 }
