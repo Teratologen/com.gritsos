@@ -48,7 +48,7 @@ export default class Beertap extends React.Component {
 
     this._initialMousePosition = {x: event.clientX, y: event.clientY};
     this.setState({displayGlass: false, mousePosition: {x: 0, y: 0}});
-
+    this.timer = setInterval(this.makeBubbles, 10000);
     window.addEventListener("mousemove", this.handleMouseMove);
     window.addEventListener("mouseup", this.handleMouseUp);
   }
@@ -145,8 +145,6 @@ export default class Beertap extends React.Component {
     this.colorUpdateTimer = setInterval(
       this.updateBeerEBCColorCode.bind(this),
       this.colorChangeInterval * 60000);
-
-    this.timer = setInterval(this.makeBubbles, 10000);
   }
 
   componentWillUnmount() {

@@ -63,7 +63,6 @@
   mask-repeat: repeat-x;
   mask-size: 100% 200%;
   background-color: black;
-  transition: background-color 4s linear;
 
   animation-name: waveUpAnimation, waveSideAnimation;
   animation-duration: 28s, 4s;
@@ -85,7 +84,7 @@
   mask-size: 100% 100%;
   background-color: rgb(255, 254, 222);
 
-  animation-name: bubbleAnimation;
+  animation-name: bubbleRise;
   animation-duration: 30s;
   animation-iteration-count: 1;
   animation-timing-function: ease-out;
@@ -194,7 +193,13 @@
   100% { transform: translate(0px,50px); }
 }
 
-@keyframes bubbleAnimation {
-  0%   { opacity: 1; transform: translate(0px,0px);}
-  100% { opacity: 0; transform: translate(0px,-500px);}
+@keyframes bubbleRise {
+  0%   { opacity: 1; transform: scale(0,0) translate(0px,0px);}
+  20%  { opacity: 1; transform: scale(1,1) translate(0px,0px);}
+  100% { opacity: 0; transform: scale(1,1) translate(0px,-500px);}
+}
+
+@keyframes bubbleGrowth {
+  0%   { transform: scale(0,0);}
+  100% { transform: scale(1,1);}
 }
