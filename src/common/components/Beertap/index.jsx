@@ -28,8 +28,8 @@ export default class Beertap extends React.Component {
     this.handleMouseUp =
       this.handleMouseUp.bind(this);
 
-    this.toggleSomething =
-      this.toggleSomething.bind(this);
+    this.makeBubbles =
+      this.makeBubbles.bind(this);
 
     /* Set initial state */
     this.state = {
@@ -74,19 +74,25 @@ export default class Beertap extends React.Component {
   }
 
   /* Bubles  ------–––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-  toggleSomething() {
+
+  /* Create bubbles at a random pace with random width and random x-position
+   */
+  makeBubbles() {
     var leftPosition = parseInt(Math.random()*270).toString();
     var bubbleSize = parseInt(3+Math.random()*12).toString();
-
-    clearInterval(this.timer);
-    this.timer = setInterval(this.toggleSomething, parseInt(Math.random() * this.randomWidth));
     var myContainer = document.getElementById('myContainer');
     var bubble = document.createElement('bubble');
+
+    clearInterval(this.timer);
+    this.timer = setInterval(this.makeBubbles, parseInt(Math.random() * this.randomWidth));
+
+    bubble.addEventListener('webkitAnimationEnd',function(event) {bubble.style.display = 'none'; },false);
     bubble.className = style.bubbles;
     bubble.style.left = leftPosition+"px";
     bubble.style.width = bubbleSize+"px";
     bubble.style.height = bubbleSize+"px";
     bubble.style.animationDuration = (200/bubbleSize).toString()+"s";
+
     myContainer.insertAdjacentElement('beforeend', bubble);
   }
 
@@ -140,7 +146,7 @@ export default class Beertap extends React.Component {
       this.updateBeerEBCColorCode.bind(this),
       this.colorChangeInterval * 60000);
 
-    this.timer = setInterval(this.toggleSomething, 10000);
+    this.timer = setInterval(this.makeBubbles, 10000);
   }
 
   componentWillUnmount() {
@@ -159,7 +165,7 @@ export default class Beertap extends React.Component {
      * stream */
     const streamClass = classNames(style.stream, this.getBeerEBCColorClass());
 
-    const waveClass = classNames(style.wave, this.getBeerEBCColorClass());
+    const waveClass = (this.state.displayGlass) ? {null} : classNames(style.wave, this.getBeerEBCColorClass());
 
     const glassClass = classNames(style.glass, {[`${style.glassMoving}`]: this.state.moveGlass}, {[`${style.glassDropping}`]: this.state.dropGlass});
 
