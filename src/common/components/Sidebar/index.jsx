@@ -19,7 +19,7 @@ export default class Sidebar extends React.Component {
     return (
       <aside className={className} {...props}>
         <header>
-          <img src='http://localhost:9090/build/gritsos.svg' alt="Gritsos logo" className={style.logo}/>
+          <img src='http://localhost:9090/build/slogan.svg' alt="Gritsos logo" className={style.logo}/>
         </header>
         {children}
       </aside>

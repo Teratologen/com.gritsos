@@ -53,7 +53,7 @@
   flex-shrink: 0;
   position: absolute;
   left: 0;
-  z-index: 9998;
+  z-index: 10;
   bottom: 0px;
   /*
   background: url(http://localhost:9090/build/stream.svg) 0 0 repeat-y;

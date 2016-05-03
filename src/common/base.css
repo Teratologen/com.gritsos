@@ -14,7 +14,10 @@ html, body, :global(#app) {
 .sidebar {
   width: 280px;
   position: relative;
-  background: #e6e6e6;
+  background: #fafafa;
+  border-right: 2px solid #212121;
+  outline: 2px solid #fafafa;
+  margin-right: 2px;
 }
 
 .beertap {
@@ -26,4 +29,7 @@ html, body, :global(#app) {
 
 .content {
   flex: 1;
+  background: #fafafa;
+  border-left: 2px solid #bdbdbd;
+  padding-left: 8px;
 }
