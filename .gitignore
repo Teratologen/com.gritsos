@@ -2,6 +2,11 @@
 build/app.js
 build/style.css
 
+# Junk
+*.DS_Store
+*.travis.yml
+READMEtemp.md
+
 # Logs
 logs
 *.log
