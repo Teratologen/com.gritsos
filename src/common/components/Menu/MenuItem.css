@@ -1,4 +1,11 @@
 
 :global .pure-menu-link:hover {
-  background: rgba(48, 155, 84, 0.16);
+  color: rgba(1,1,1, 0.8);
+  background: transparent;
+}
+
+:global .pure-menu-link {
+  color: #37474f;
+  font-weight:lighter;
+  font-family: 'Raleway', sans-serif;
 }

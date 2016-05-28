@@ -17,7 +17,7 @@ export default class Menu extends React.Component {
   render() {
     return (
       <menu className={style.menu}>
-        <ul className="">
+        <ul className="pure-menu-list">
           {this.props.children}
         </ul>
       </menu>

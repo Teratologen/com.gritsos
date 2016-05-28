@@ -11,3 +11,4 @@ export default class MenuItem extends React.Component {
     );
   }
 }
+"pure-menu-list"

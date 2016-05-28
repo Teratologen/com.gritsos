@@ -58,6 +58,7 @@
     "express": "^4.12.3",
     "highcharts": "^4.2.4",
     "highcharts-more": "^0.1.2",
+    "jade": "^1.11.0",
     "purecss": "^0.6.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",

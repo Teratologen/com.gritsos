@@ -14,9 +14,9 @@ html, body, :global(#app) {
 .sidebar {
   width: 280px;
   position: relative;
-  background: #fafafa;
+  background: #b0bec5;
   border-right: 2px solid #212121;
-  outline: 2px solid #fafafa;
+  outline: 2px solid #b0bec5;
   margin-right: 2px;
 }
 
@@ -29,7 +29,7 @@ html, body, :global(#app) {
 
 .content {
   flex: 1;
-  background: #fafafa;
-  border-left: 2px solid #bdbdbd;
-  padding-left: 8px;
+  background: rgba(227, 245, 254, 0.5);
 }
+
+h1 {font-family: 'Raleway', sans-serif;}

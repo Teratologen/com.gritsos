@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  justify-content: center;
+  padding-left: 0px;
+}
+
+.item {
+  background-color: #21713f;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+  margin-top: 10px;
+  margin: 10px;
+  text-align: left;
+  color: #ffffff;
+  font-family: 'Raleway', sans-serif;
+  font-weight:lighter;
+}
+
+.tap {
+  display: block;
+  flex-shrink: 0;
+  width: 100%;
+  height: 54px;
+
+  background-size: 60px 54px;
+}
