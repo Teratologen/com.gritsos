@@ -1,6 +1,9 @@
 import React from 'react';
 import style from './beertap.css';
 import classNames from 'classnames';
+import {createStore} from 'redux';
+import glassHandler from './reducers';
+const store = createStore(glassHandler)
 
 export default class Beertap extends React.Component {
 
@@ -19,9 +22,10 @@ export default class Beertap extends React.Component {
     this.getBeerEBCColorClass =
       this.getBeerEBCColorClass.bind(this);
 
+    /*
     this.handleGlassMouseDown =
       this.handleGlassMouseDown.bind(this);
-
+    */
     this.handleMouseMove =
       this.handleMouseMove.bind(this);
 
@@ -42,7 +46,9 @@ export default class Beertap extends React.Component {
   }
 
   /* Event handlers ––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-  handleGlassMouseDown(event) {
+  handleGlassMouseDown=(event) => {
+    store.dispatch({ type: 'GRAB' });
+
     event.preventDefault();
     event.stopPropagation();
 
@@ -53,7 +59,8 @@ export default class Beertap extends React.Component {
     window.addEventListener("mouseup", this.handleMouseUp);
   }
 
-  handleMouseMove(event) {
+  handleMouseMove = (event) => {
+    store.dispatch({ type: 'MOVE' });
     this.setState({moveGlass: true});
     event.preventDefault();
     event.stopPropagation();
@@ -64,7 +71,8 @@ export default class Beertap extends React.Component {
     });
   }
 
-  handleMouseUp(event) {
+  handleMouseUp = (event) => {
+    store.dispatch({ type: 'RELEASE' });
     this.setState({dropGlass: true});
     event.preventDefault();
     event.stopPropagation();
@@ -155,6 +163,7 @@ export default class Beertap extends React.Component {
   /* Render ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
   render() {
+    console.log(store.getState());
     const {children, className, ...props} = this.props;
     /* Pass on classes applied to the parent to the
      * container */
@@ -165,7 +174,7 @@ export default class Beertap extends React.Component {
 
     const waveClass = (this.state.displayGlass) ? {null} : classNames(style.wave, this.getBeerEBCColorClass());
 
-    const glassClass = classNames(style.glass, {[`${style.glassMoving}`]: this.state.moveGlass}, {[`${style.glassDropping}`]: this.state.dropGlass});
+    const glassClass = classNames(style.glass, {[`${style.glassMoving}`]: store.getState()}, {[`${style.glassDropping}`]: this.state.dropGlass});
 
     const glassStyle = {
       left: this.state.mousePosition.x,
